@@ -1,23 +1,57 @@
-import logo from './logo.svg';
+import logo from './components/YorkU_logo.png';
+import loginButton from '../src/components/Login_Button'
+import LoginEntry from '../src/components/Login_Entry'
+import Checkbox from '../src/components/Checkbox'
+import mainContent from '../src/components/Main_Content'
+
+import React, { useState } from 'react'
+
 import './App.css';
 
 function App() {
+
+  const [userInputVal, setUserInputVal] = useState("");
+  const [passInputVal, setPassInputVal] = useState("");
+
+  const handleUserInputChange = (e) => {
+    setUserInputVal(e.target.value);
+  }
+
+  const handlePassInputChange = (e) => {
+    setPassInputVal(e.target.value);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="Login_Page">
+      <header className="Banner_Logo">
+        <img src={logo} className= "org-logo" alt="logo" />
+        <p> Login Below: </p>
       </header>
+
+      {/* Username Input*/}
+      <LoginEntry
+        label="Enter username:"
+        placeholder="username"
+        onChange = {handleUserInputChange}
+        value = {userInputVal}
+      /> 
+      <p>Testing: typed input is {userInputVal}</p>
+
+
+      {/* Password Input  */}
+      <LoginEntry
+        label="Enter password:"
+        placeholder="password"
+        onChange = {handlePassInputChange}
+        value = {passInputVal}
+      /> 
+      <p>Testing: typed input is {passInputVal}</p>
+
+      
+
+      
+      
+      
     </div>
   );
 }
