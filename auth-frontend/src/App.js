@@ -1,5 +1,5 @@
 import logo from './components/YorkU_logo.png';
-import loginButton from '../src/components/Login_Button'
+import LoginButton from '../src/components/Login_Button'
 import LoginEntry from '../src/components/Login_Entry'
 import Checkbox from '../src/components/Checkbox'
 import mainContent from '../src/components/Main_Content'
@@ -35,7 +35,7 @@ function App() {
         onChange = {handleUserInputChange}
         value = {userInputVal}
       /> 
-      <p>Testing: typed input is {userInputVal}</p>
+      
 
 
       {/* Password Input  */}
@@ -45,9 +45,12 @@ function App() {
         onChange = {handlePassInputChange}
         value = {passInputVal}
       /> 
-      <p>Testing: typed input is {passInputVal}</p>
+    
 
       
+      {/* Submit button */}
+      <LoginButton/>
+
 
       
       
