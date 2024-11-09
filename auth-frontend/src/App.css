@@ -1,5 +1,9 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f4f4; /* Background color for the page */
+  font-family: Arial, sans-serif;
 }
 
 .App-logo {
@@ -40,3 +44,25 @@
   }
 }
 */
+
+/* Style for the banner with red background */
+.header-banner {
+  width: 100%;
+  background-color: #d50000; /* Red background */
+  padding: 0.01rem;
+  text-align: center;
+  color: white;
+}
+
+.passport-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 100px;
+}
+
+.org-logo {
+  height: 10vmin;
+  pointer-events: none;
+  margin-left: 70px;
+}

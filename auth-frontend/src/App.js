@@ -25,8 +25,13 @@ function App() {
     <div className="Login_Page">
       <header className="Banner_Logo">
         <img src={logo} className= "org-logo" alt="logo" />
-        <p> Login Below: </p>
       </header>
+
+      <div className="header-banner">
+        <h1 className="passport-text">Passport Login</h1>
+      </div>
+
+      <p> Login Below: </p>
 
       {/* Username Input*/}
       <LoginEntry
@@ -35,9 +40,7 @@ function App() {
         onChange = {handleUserInputChange}
         value = {userInputVal}
       /> 
-      
-
-
+    
       {/* Password Input  */}
       <LoginEntry
         label="Enter password:"
