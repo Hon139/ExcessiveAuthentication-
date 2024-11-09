@@ -35,6 +35,7 @@ function App() {
 
       {/* Username Input*/}
       <LoginEntry
+        type="text"
         label="Enter username:"
         placeholder="username"
         onChange = {handleUserInputChange}
@@ -43,6 +44,7 @@ function App() {
     
       {/* Password Input  */}
       <LoginEntry
+        type="password"
         label="Enter password:"
         placeholder="password"
         onChange = {handlePassInputChange}
@@ -53,11 +55,6 @@ function App() {
       
       {/* Submit button */}
       <LoginButton/>
-
-
-      
-      
-      
     </div>
   );
 }

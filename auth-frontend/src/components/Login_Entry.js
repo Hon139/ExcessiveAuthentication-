@@ -1,12 +1,12 @@
 //import { useState } from "react";
 import {React} from "react"
 
-const textInput = ({label, desc, onChange, value}) => {
+const textInput = ({type, label, desc, onChange, value}) => {
     return (
         <div>
             <label>{label}</label>
             <input
-                type="text"
+                type= {type === "password" ? "password":"text"}
                 value ={value}
                 onChange={onChange}
                 placeholder={desc}
