@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom'; // Use Routes, Route, useNavigate without Router
 import logo from './components/YorkU_logo.png';
-import JohnYork from './components/john_york.png'
-import LoginButton from '../src/components/Login_Button'
-import LoginEntry from '../src/components/Login_Entry'
-//import Checkbox from '../src/components/Checkbox'
-//import mainContent from '../src/components/Main_Content'
+import JohnYork from './components/john_york.png';
+import LoginButton from '../src/components/Login_Button';
+import LoginEntry from '../src/components/Login_Entry';
+import LoginFail from '../src/components/Login_Failed';
 import MathAuth from './pages/mathauth';
-
 import './App.css';
+
+const CORRECT_USR = "johnyork";
+const CORRECT_PWD = "12345"
 
 function App() {
   return (
@@ -23,10 +24,10 @@ function App() {
 function Home() {
   const [userInputVal, setUserInputVal] = useState("");
   const [passInputVal, setPassInputVal] = useState("");
-  const navigate = useNavigate();
+  const [errMessage, setErrMessage] = useState("");
 
+  const navigate = useNavigate();
   const handleUserInputChange = (e) => {
-   // console.log("test")
     setUserInputVal(e.target.value);
   };
 
@@ -34,9 +35,17 @@ function Home() {
     setPassInputVal(e.target.value);
   };
 
-  const handleLogin = () => {
-    console.log("submit triggered")
-    //navigate('/mathauth');
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setErrMessage("");
+    if (userInputVal === CORRECT_USR && passInputVal === CORRECT_PWD) {
+      navigate('/mathauth');
+    }
+    else {
+      console.log("error!!")
+      setErrMessage("bozo u typed the wrong password");
+    }
+    console.log(errMessage)  
   };
 
   return (
@@ -75,9 +84,16 @@ function Home() {
       
       {/* Submit button */}
       <LoginButton eventListener={handleLogin} type="button"/>
+
+      {/* Error message if attempt not successful: */}     
+      <div>
+        {errMessage && <LoginFail errMessage={errMessage} />}
+      </div>
+  
     </div>
     
   );
 }
+
 
 export default App;
