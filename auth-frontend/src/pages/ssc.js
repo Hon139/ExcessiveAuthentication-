@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../components/YorkU_logo.png';
 import axios from 'axios';
+import elfchad from '../components/elfchad.png';
 import './pages.css';
 
 function SSC() {
   const [restorePasswords, setRestorePasswords] = useState(['', '']);
   const [restoredMessage, setRestoredMessage] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   // Set base URL for axios requests
-  const API_BASE_URL = 'http://localhost:8080'; // Change this to your backend URL if different
+  const API_BASE_URL = 'http://localhost:8080';
 
   // Function to update passwords for restore operation
   const handleRestorePasswordChange = (index, value) => {
@@ -23,8 +26,8 @@ function SSC() {
     try {
       setError('');
       const response = await axios.post(`${API_BASE_URL}/restore`, restorePasswords);
-      const data = response.data; // Extract JSON data
-      setRestoredMessage(data.message); // Display the message from the backend response
+      const data = response.data;
+      setRestoredMessage(data.message === "correct" ? "Elfchad approves you!" : "");
     } catch (error) {
       setError('Failed to restore the secret. Please check the passwords and try again.');
     }
@@ -44,8 +47,9 @@ function SSC() {
         <h2>Secret Sharing with Shamir's Scheme</h2>
 
         <div className="restore-section">
-          <h3>Restore Secret</h3>
-          <p>Enter passwords to restore the secret:</p>
+          <img src={elfchad} className="elfchad-image" alt="Elfchad Character" />
+          <p>Elfchad is impressed with your performance for coming this far. Enter your secret passwords, and Elfchad will let you through.</p>
+          
           {restorePasswords.map((password, index) => (
             <input
               key={index}
@@ -53,10 +57,19 @@ function SSC() {
               placeholder={`Password ${index + 1}`}
               value={password}
               onChange={(e) => handleRestorePasswordChange(index, e.target.value)}
+              className="password-input"
             />
           ))}
-          <button onClick={handleRestoreSecret}>Restore Secret</button>
-          {restoredMessage && <p>{restoredMessage}</p>}
+
+          <button onClick={handleRestoreSecret} className="restore-button">Restore Secret</button>
+
+          {restoredMessage && <p className="success-message">{restoredMessage}</p>}
+
+          {restoredMessage && (
+            <button onClick={() => navigate('/nextpage')} className="next-button">
+              Next
+            </button>
+          )}
         </div>
 
         {error && <p className="error">{error}</p>}

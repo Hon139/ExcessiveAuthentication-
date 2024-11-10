@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../components/YorkU_logo.png';
 import geda from '../components/geda.png';
 import { BlockMath } from 'react-katex';
@@ -9,6 +10,7 @@ function MathAuth() {
   const [counter, setCounter] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
   const [isCorrect, setIsCorrect] = useState(false);
+  const navigate = useNavigate();
 
   // Function to fetch the counter from ESP8266
   const fetchCounter = async () => {
@@ -60,9 +62,10 @@ function MathAuth() {
       </div>
 
       <div className="math-container">
+        <h2>Math Authentication</h2>
         <img src={geda} className="geda" alt="gedagide" />
         <p className="center">
-          Gedagedigedagedago. Yeo the nugget wants you to solve this math equation! Use the provided board to find the number and solve for the equation!
+          Gedagedigedagedago. Yeo the nugget wants you to solve this math equation! Use the board that was magically summoned to you to find the number and solve for the equation!
         </p>
         <BlockMath math="(x + 5) \times 4 - 1 = ?" />
         <input
@@ -75,7 +78,15 @@ function MathAuth() {
         <button onClick={checkAnswer} className="math-button">Submit Answer</button>
 
         {isCorrect && (
-          <button className="math-button success-button">Access Granted</button>
+          <>
+            <p className="success-message">You solved the equation! You must be a university student!</p>
+            <button
+              className="next-button"
+              onClick={() => navigate('/ssc')}
+            >
+              Proceed to SSC
+            </button>
+          </>
         )}
       </div>
     </div>

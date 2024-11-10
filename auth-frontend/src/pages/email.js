@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../components/YorkU_logo.png';
 import toilet from '../components/toilet.png';
 import axios from 'axios';
@@ -10,7 +11,10 @@ function EmailVerification() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [isCodeSent, setIsCodeSent] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
 
+  const navigate = useNavigate();
+  
   // Base URL for API
   const API_BASE_URL = 'http://localhost:8080';
 
@@ -39,6 +43,7 @@ function EmailVerification() {
         { headers: { 'Content-Type': 'application/json' } }
       );
       setMessage(response.data);
+      setIsVerified(true); // Mark as verified
     } catch (error) {
       setError('Failed to verify the code. Please try again.');
     }
@@ -88,6 +93,13 @@ function EmailVerification() {
         {/* Messages */}
         {message && <p className="message">{message}</p>}
         {error && <p className="error">{error}</p>}
+
+        {/* Navigation Button to TouchID after Verification */}
+        {isVerified && (
+          <button className="submit-button" onClick={() => navigate('/touchid')}>
+            Proceed to next step
+          </button>
+        )}
       </div>
     </div>
   );
