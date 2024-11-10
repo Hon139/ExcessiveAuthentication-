@@ -2,23 +2,21 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../components/YorkU_logo.png';
 import './pages.css';
-import OTOP from 'otpauth'; // Add this line to import OTOP
+import { TOTP } from 'otpauth'; // Import TOTP directly
 import mongoFunk from './../Scripts/mongoFuncs.js';
 
+function verify(tokenInput, secretInput) {
+  const totp = new TOTP({
+    secret: secretInput,
+    encoding: 'ascii',
+  });
 
-function verify (tokenInput, secretInput) {
-  return OTOP.totp.verify({
-      secret: secretInput,
-      encoding: 'ascii',
-      token: tokenInput
-  });    
+  return totp.validate({ token: tokenInput });
 }
 
-
 function GoogleAuth() {
-
-  tokenInput = "123";
-  secretInput = mongoFunk.getSecret(1);
+  const tokenInput = "123"; // Example token; replace with actual user input
+  const secretInput = mongoFunk.getSecret(1); // Fetch the secret from your function
   const verifyStatus = verify(tokenInput, secretInput);
 
   return (
@@ -31,8 +29,9 @@ function GoogleAuth() {
         <h1 className="passport-text">Passport York Login</h1>
       </div>
 
-
-     
+      <div>
+        <p>Verification Status: {verifyStatus ? "Valid" : "Invalid"}</p>
+      </div>
     </div>
   );
 }

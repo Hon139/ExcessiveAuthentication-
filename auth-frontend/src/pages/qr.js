@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
-import { Secret, TOTP } from 'otpauth'; // Import classes directly
+import { Secret, TOTP } from 'otpauth';
 import logo from '../components/YorkU_logo.png';
 import './pages.css';
 import mongoFunk from './../Scripts/mongoFuncs.js';
 
 function QR() {
   const [otpUrl, setOtpUrl] = useState('');
+  const tokenInput = useRef(null);
+  const secretInput = useRef(null);
 
   useEffect(() => {
     // Generate TOTP secret
     const secret = new Secret({ size: 20 });
-    // Create a new TOTP instance
-    mongoFunk.updateEntries(1,secret);
+    mongoFunk.updateEntries(1, secret);
     const totp = new TOTP({
       issuer: 'ExcessiveAuth',
       label: 'User@example.com', // Replace with actual user email or identifier
@@ -22,7 +23,6 @@ function QR() {
       secret: secret,
     });
 
-    // Create the otpauth:// URL
     const otpauthUrl = totp.toString();
     setOtpUrl(otpauthUrl);
   }, []);
@@ -41,6 +41,8 @@ function QR() {
         <>
           <QRCodeCanvas value={otpUrl} size={128} />
           <p className="secret-text">Scan this QR code to set up TOTP authentication.</p>
+          <input ref={tokenInput} placeholder="Enter token" />
+          <input ref={secretInput} placeholder="Enter secret" />
         </>
       ) : (
         <p>Loading QR Code...</p>

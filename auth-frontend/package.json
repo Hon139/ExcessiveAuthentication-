@@ -9,10 +9,18 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "assert": "^2.1.0",
     "axios": "^1.7.7",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.1",
     "daisyui": "^4.12.14",
     "katex": "^0.16.11",
+    "mongodb": "^6.10.0",
+    "os-browserify": "^0.3.0",
     "otpauth": "^9.3.4",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
     "qrcode": "^1.5.4",
     "qrcode.react": "^4.1.0",
     "react": "^18.3.1",
@@ -24,12 +32,17 @@
     "react-scripts": "^5.0.1",
     "react-webcam": "^7.2.0",
     "speakeasy": "^2.0.0",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "timers-browserify": "^2.0.12",
+    "url": "^0.11.4",
+    "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -51,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "react-app-rewired": "^2.2.1",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
     "webpack-manifest-plugin": "^5.0.0",
