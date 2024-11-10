@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import logo from './components/YorkU_logo.png';
 import JohnYork from './components/john_york.png';
 import MathAuth from './pages/mathauth';
+import TouchID from './pages/touchid';  // Import TouchID component
 import './App.css';
 
 const CORRECT_USR = "johnyork";
@@ -13,6 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} /> {/* Main login page */}
       <Route path="/mathauth" element={<MathAuth />} /> {/* MathAuth page */}
+      <Route path="/touchid" element={<TouchID />} /> {/* TouchID page */}
     </Routes>
   );
 }
