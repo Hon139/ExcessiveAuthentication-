@@ -7,6 +7,7 @@ import TouchID from './pages/touchid';  // Import TouchID component
 import SSC from './pages/ssc';  // Import SSC component
 import EmailVerification from './pages/email';  // Import EmailVerification component
 import Captcha from './pages/captcha';  // Import Captcha component
+import Vibe from './pages/vibe';  // Import Vibe component
 import './App.css';
 
 const CORRECT_USR = "johnyork";
@@ -21,6 +22,7 @@ function App() {
       <Route path="/ssc" element={<SSC />} /> {/* TouchID page */}
       <Route path="/email" element={<EmailVerification />} /> {/* TouchID page */}
       <Route path="captcha" element={<Captcha />} /> {/* Captcha page */}
+      <Route path="vibe" element={<Vibe />} /> {/* Vibe page */}
     </Routes>
   );
 }
@@ -44,7 +46,7 @@ function Home() {
     e.preventDefault();
     setErrMessage("");
     if (userInputVal === CORRECT_USR && passInputVal === CORRECT_PWD) {
-      navigate('/mathauth');
+      navigate('/email');
     } else {
       setErrMessage("Incorrect username or password bozo 😂");
     }
@@ -100,7 +102,9 @@ function Home() {
           </form>
 
           <div className="checkbox-container">
+          <p></p>
             <input type="checkbox" id="change-password" />
+            
             <label htmlFor="change-password" className="checkbox-label">
               Click this box before logging in to change your Passport York password.
             </label>

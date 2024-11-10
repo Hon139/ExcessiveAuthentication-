@@ -82,3 +82,82 @@
   .MathAuth {
     font-family: Arial, sans-serif;
   }
+
+  .Banner_Logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .header-banner {
+    width: 100%;
+    background-color: #d50000;
+    padding: 0.5rem;
+    text-align: center;
+    color: white;
+  }
+  
+  .passport-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .math-container {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .input-section {
+    margin-bottom: 15px;
+  }
+  
+  .input-box {
+    width: 80%;
+    padding: 10px;
+    margin-right: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #00529b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #003d7a;
+  }
+  
+  .message {
+    color: green;
+    font-size: 1rem;
+    margin-top: 15px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 1rem;
+    margin-top: 15px;
+  }
+  
+  .toilet {
+    width: 60%;
+    height: auto;
+  }
