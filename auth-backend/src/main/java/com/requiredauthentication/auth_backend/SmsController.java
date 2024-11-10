@@ -25,7 +25,7 @@ public class SmsController {
 
         System.out.println(number);
         log.info("sent code to " + number);
-        return smsService.sendSms(number, "Your verification code is: " + verificationCode);
+        return smsService.sendSms(number, "Your YUSoSecure verification code is: " + verificationCode);
     }
 
     @PostMapping("/verifyCode")

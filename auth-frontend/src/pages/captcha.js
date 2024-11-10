@@ -21,7 +21,7 @@ function Captcha() {
       </header>
 
       <div className="header-banner">
-        <h1 className="passport-text">Passport York Login</h1>
+        <h1 className="passport-text">YUSoSecure</h1>
       </div>
 
       <div className="math-container">

@@ -4,8 +4,8 @@
   
   .Banner_Logo {
     display: flex;
-    align-items: center;
     margin-bottom: 10px;
+    padding: 10px 20px;
   }
   
   .header-banner {
@@ -66,7 +66,7 @@
   }
   
   .geda {
-    width: 50%;
+    width: 60%;
     height: auto; /* Maintains the aspect ratio */
   }
   .center {
@@ -158,12 +158,12 @@
   }
   
   .toilet {
-    width: 60%;
+    width: 70%;
     height: auto;
   }
 
   .drippy-image {
-    width: 60%;
+    width: 70%;
     height: auto;
   
   }
@@ -222,7 +222,7 @@
   }
   
   .elf-image {
-    width: 60%;
+    width: 80%;
     height: auto;
   }
 
@@ -425,3 +425,233 @@
     margin-top: 50px;
     text-align: center;
   }
+
+  .MathAuth {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .Banner_Logo {
+    margin-bottom: 20px;
+  }
+  
+  .header-banner {
+    margin-bottom: 40px;
+  }
+  
+  .auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .auth-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .auth-instructions {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .token-input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .verify-button, .next-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .verify-button:hover, .next-button:hover {
+    background-color: #45a049;
+  }
+  
+  .success-message {
+    color: #4CAF50;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .error-message {
+    color: #f44336;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  .biden-image {
+    width: 70%;
+    height: auto;
+  }
+  
+  .GoogleAuth {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .Banner_Logo {
+    margin-bottom: 20px;
+  }
+  
+  .header-banner {
+    margin-bottom: 30px;
+  }
+  
+  .auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .auth-image {
+    width: 100px; /* Smaller size for balance */
+    margin-bottom: 20px;
+  }
+  
+  .input-section {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .input-box {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+  
+  .message {
+    color: #4CAF50;
+    font-weight: bold;
+  }
+  
+  .error {
+    color: #f44336;
+    font-weight: bold;
+  }
+
+  .vibe-check {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .Banner_Logo {
+    margin-bottom: 20px;
+  }
+  
+  .header-banner {
+    margin-bottom: 30px;
+  }
+  
+  .vibe-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .joe-biden-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .joe-biden-image {
+    width: 200px; /* Smaller size */
+    margin-bottom: 10px;
+  }
+  
+  .joe-biden-text {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #555;
+    margin: 0;
+  }
+  
+  .question-title {
+    font-size: 1.2em;
+    color: #333;
+    margin: 20px 0 10px;
+  }
+  
+  .prompt-box {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the box horizontally */
+    max-width: 600px;
+    margin: 0 auto 20px; /* Center with auto left/right margin */
+    text-align: center;
+  }
+  
+  .submit-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 12px;
+    font-size: 1em;
+    align-self: center; /* Center the button horizontally */
+    font-weight: bold;
+    text-transform: none;
+  }
+  
+  

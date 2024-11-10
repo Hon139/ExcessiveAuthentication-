@@ -12,7 +12,7 @@ function SSC() {
   const navigate = useNavigate();
 
   // Set base URL for axios requests
-  const API_BASE_URL = 'http://localhost:8080';
+  const API_BASE_URL = 'https://excessive-auth-48591cafe177.herokuapp.com';
 
   // Function to update passwords for restore operation
   const handleRestorePasswordChange = (index, value) => {
@@ -27,7 +27,14 @@ function SSC() {
       setError('');
       const response = await axios.post(`${API_BASE_URL}/restore`, restorePasswords);
       const data = response.data;
-      setRestoredMessage(data.message === "correct" ? "Elfchad approves you!" : "");
+
+      // Check if response data matches the expected secret "Hello World!"
+      if (data === "Hello World!") {
+        setRestoredMessage("Elfchad approves you!");
+      } else {
+        setRestoredMessage('');
+        setError('Incorrect passwords. Please try again.');
+      }
     } catch (error) {
       setError('Failed to restore the secret. Please check the passwords and try again.');
     }
@@ -40,7 +47,7 @@ function SSC() {
       </header>
 
       <div className="header-banner">
-        <h1 className="passport-text">Passport York Login</h1>
+        <h1 className="passport-text">YUSoSecure</h1>
       </div>
 
       <div className="math-container">
@@ -66,7 +73,7 @@ function SSC() {
           {restoredMessage && <p className="success-message">{restoredMessage}</p>}
 
           {restoredMessage && (
-            <button onClick={() => navigate('/nextpage')} className="next-button">
+            <button onClick={() => navigate('/vibe')} className="next-button">
               Next
             </button>
           )}

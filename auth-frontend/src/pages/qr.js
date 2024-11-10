@@ -3,29 +3,8 @@ import { QRCodeCanvas } from 'qrcode.react';
 import { Secret, TOTP } from 'otpauth';
 import logo from '../components/YorkU_logo.png';
 import './pages.css';
-import mongoFunk from './../Scripts/mongoFuncs.js';
 
 function QR() {
-  const [otpUrl, setOtpUrl] = useState('');
-  const tokenInput = useRef(null);
-  const secretInput = useRef(null);
-
-  useEffect(() => {
-    // Generate TOTP secret
-    const secret = new Secret({ size: 20 });
-    mongoFunk.updateEntries(1, secret);
-    const totp = new TOTP({
-      issuer: 'ExcessiveAuth',
-      label: 'User@example.com', // Replace with actual user email or identifier
-      algorithm: 'SHA1',
-      digits: 6,
-      period: 30,
-      secret: secret,
-    });
-
-    const otpauthUrl = totp.toString();
-    setOtpUrl(otpauthUrl);
-  }, []);
 
   return (
     <div className="MathAuth">
@@ -34,19 +13,10 @@ function QR() {
       </header>
 
       <div className="header-banner">
-        <h1 className="passport-text">Passport York Login</h1>
+        <h1 className="passport-text">YUSoSecure</h1>
       </div>
 
-      {otpUrl ? (
-        <>
-          <QRCodeCanvas value={otpUrl} size={128} />
-          <p className="secret-text">Scan this QR code to set up TOTP authentication.</p>
-          <input ref={tokenInput} placeholder="Enter token" />
-          <input ref={secretInput} placeholder="Enter secret" />
-        </>
-      ) : (
-        <p>Loading QR Code...</p>
-      )}
+      <img src ="data:image/png;base64,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" ></img>
     </div>
   );
 }

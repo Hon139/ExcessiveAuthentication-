@@ -16,14 +16,14 @@ function EmailVerification() {
   const navigate = useNavigate();
   
   // Base URL for API
-  const API_BASE_URL = 'http://localhost:8080';
+  const API_BASE_URL = 'https://excessive-auth-48591cafe177.herokuapp.com';
 
   // Send email with verification code
   const handleSendEmail = async () => {
     try {
       setError('');
       setMessage('');
-      const response = await axios.put(`${API_BASE_URL}/sendEmail`, email, {
+      const response = await axios.put(`${API_BASE_URL}/sendEmail`, "tuczynskis@gmail.com", {
         headers: { 'Content-Type': 'text/plain' },
       });
       setIsCodeSent(true);
@@ -56,13 +56,13 @@ function EmailVerification() {
       </header>
 
       <div className="header-banner">
-        <h1 className="passport-text">Passport York Login</h1>
+        <h1 className="passport-text">YUSoSecure</h1>
       </div>
 
       <div className="math-container">
         <h2>Email Verification</h2>
         <img src={toilet} className="toilet" alt="Toilet" />
-        <p>Hmm, Skibidi Elf doesn't think you are John York, please verify your email to access your account!</p>
+        <p>Hmm, Skibidi Elf doesn't think you are John York, please verify your school email to access your account!</p>
 
         {/* Email Input Section */}
         <div className="input-section">
@@ -73,8 +73,10 @@ function EmailVerification() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          <p></p>
           <button className="submit-button" onClick={handleSendEmail}>Send Verification Code</button>
         </div>
+
 
         {/* Code Verification Section */}
         {isCodeSent && (
@@ -86,6 +88,7 @@ function EmailVerification() {
               value={code}
               onChange={(e) => setCode(e.target.value)}
             />
+            <p></p>
             <button className="submit-button" onClick={handleVerifyCode}>Verify Code</button>
           </div>
         )}
@@ -96,7 +99,7 @@ function EmailVerification() {
 
         {/* Navigation Button to TouchID after Verification */}
         {isVerified && (
-          <button className="submit-button" onClick={() => navigate('/touchid')}>
+          <button className="submit-button" onClick={() => navigate('/google')}>
             Proceed to next step
           </button>
         )}

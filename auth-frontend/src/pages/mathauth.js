@@ -10,6 +10,7 @@ function MathAuth() {
   const [counter, setCounter] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
   const [isCorrect, setIsCorrect] = useState(false);
+  const [hasAnsweredCorrectly, setHasAnsweredCorrectly] = useState(false);
   const navigate = useNavigate();
 
   // Function to fetch the counter from ESP8266
@@ -46,6 +47,7 @@ function MathAuth() {
   const checkAnswer = () => {
     if (parseInt(userAnswer, 10) === ((counter + 5) * 4) - 1) {
       setIsCorrect(true);
+      setHasAnsweredCorrectly(true); // This ensures the button remains displayed
     } else {
       setIsCorrect(false);
     }
@@ -58,7 +60,7 @@ function MathAuth() {
       </header>
 
       <div className="header-banner">
-        <h1 className="passport-text">Passport York Login</h1>
+        <h1 className="passport-text">YUSoSecure</h1>
       </div>
 
       <div className="math-container">
@@ -69,7 +71,6 @@ function MathAuth() {
         </p>
         <BlockMath math="(x + 5) \times 4 - 1 = ?" />
         <input
-          type="number"
           value={userAnswer}
           onChange={handleAnswerChange}
           placeholder="Your answer"
@@ -77,14 +78,14 @@ function MathAuth() {
         />
         <button onClick={checkAnswer} className="math-button">Submit Answer</button>
 
-        {isCorrect && (
+        {(isCorrect || hasAnsweredCorrectly) && (
           <>
             <p className="success-message">You solved the equation! You must be a university student!</p>
             <button
               className="next-button"
               onClick={() => navigate('/ssc')}
             >
-              Proceed to SSC
+              Proceed to next step
             </button>
           </>
         )}

@@ -8,10 +8,12 @@ import SSC from './pages/ssc';  // Import SSC component
 import EmailVerification from './pages/email';  // Import EmailVerification component
 import Captcha from './pages/captcha';  // Import Captcha component
 import Vibe from './pages/vibe';  // Import Vibe component
-import GoogleAuth from './pages/googleauth';  // Import GoogleAuth component
-import QR from './pages/qr';  // Import QR component
 import FaceID from './pages/faceID';
+import SMS from './pages/sms';
+import AccessDenied from './pages/ending';
 import './App.css';
+import GoogleAuth from './pages/google';
+import QR from './pages/qr'
 
 const CORRECT_USR = "johnyork";
 const CORRECT_PWD = "12345";
@@ -26,9 +28,11 @@ function App() {
       <Route path="/email" element={<EmailVerification />} /> {/* TouchID page */}
       <Route path="/captcha" element={<Captcha />} /> {/* Captcha page */}
       <Route path="/vibe" element={<Vibe />} /> {/* Vibe page */}
-      <Route path="/googleauth" element={<GoogleAuth />} /> {/* GoogleAuth page */}
-      <Route path="/qr" element={<QR />} /> {/* QR page */}
       <Route path="/faceID" element={<FaceID/>} /> {/* FaceID page */}
+      <Route path="/access-denied" element={<AccessDenied />} /> {/* Access Denied page */}
+      <Route path="/sms" element={<SMS />} /> {/* SMS page */}
+      <Route path="/google" element={<GoogleAuth/>} />
+      <Route path="/qr" element={<QR/>} />
     </Routes>
   );
 }
@@ -65,18 +69,18 @@ function Home() {
       </header>
 
       <div className="header-banner">
-        <h1 className="passport-text">Passport York Login</h1>
+        <h1 className="passport-text">YUSoSecure</h1>
       </div>
 
       <div className="centered-box-container">
         <div className="left-box">
           <div className="passport-info">
             <h1 className="passport-title">
-              <span style={{ color: 'black' }}>Passport</span>{' '}
-              <span style={{ color: '#d50000' }}>YORK</span>
+              <span style={{ color: 'black' }}>York University</span>{' '}
+              <span style={{ color: '#d50000' }}>SoSecure</span>
             </h1>
             <p>
-              <strong>Passport York</strong> authenticates you as a member of
+              <strong>YUSoSecure</strong> authenticates you as a member of
               the York community and gives you access to a wide range of
               computing resources and services.
             </p>
