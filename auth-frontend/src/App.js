@@ -21,7 +21,7 @@ function App() {
       <Route path="/touchid" element={<TouchID />} /> {/* TouchID page */}
       <Route path="/ssc" element={<SSC />} /> {/* TouchID page */}
       <Route path="/email" element={<EmailVerification />} /> {/* TouchID page */}
-      <Route path="captcha" element={<Captcha />} /> {/* Captcha page */}
+      <Route path="/captcha" element={<Captcha />} /> {/* Captcha page */}
       <Route path="vibe" element={<Vibe />} /> {/* Vibe page */}
     </Routes>
   );
