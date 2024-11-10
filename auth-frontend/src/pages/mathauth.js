@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../components/YorkU_logo.png';
+import geda from '../components/geda.png';
+import { BlockMath } from 'react-katex';
+import 'katex/dist/katex.min.css';
+import './MathAuth.css';
 
 function MathAuth() {
   const [counter, setCounter] = useState(null);
@@ -12,10 +16,10 @@ function MathAuth() {
       const response = await fetch("http://172.20.10.9/getDigit");
       if (response.ok) {
         const data = await response.text();
-        console.log("Fetched data:", data); // Log the fetched data
-        setCounter(parseInt(data, 10)); // Convert to integer and set counter
-        setIsCorrect(false); // Reset the correctness check
-        setUserAnswer(''); // Clear previous answer
+        console.log("Fetched data:", data);
+        setCounter(parseInt(data, 10));
+        setIsCorrect(false);
+        setUserAnswer('');
       } else {
         console.error("Failed to fetch counter");
       }
@@ -26,9 +30,9 @@ function MathAuth() {
 
   // Initial fetch and periodic refresh
   useEffect(() => {
-    fetchCounter(); // Fetch counter on initial load
-    const intervalId = setInterval(fetchCounter, 5000); // Fetch every 5 seconds
-    return () => clearInterval(intervalId); // Cleanup interval on unmount
+    fetchCounter();
+    const intervalId = setInterval(fetchCounter, 5000);
+    return () => clearInterval(intervalId);
   }, []);
 
   // Function to handle answer input change
@@ -38,7 +42,7 @@ function MathAuth() {
 
   // Function to check if the answer is correct
   const checkAnswer = () => {
-    if (parseInt(userAnswer, 10) === (counter + 5)) {
+    if (parseInt(userAnswer, 10) === ((counter + 5) * 4) - 1) {
       setIsCorrect(true);
     } else {
       setIsCorrect(false);
@@ -46,7 +50,7 @@ function MathAuth() {
   };
 
   return (
-    <div>
+    <div className="MathAuth">
       <header className="Banner_Logo">
         <img src={logo} className="org-logo" alt="York University Logo" />
       </header>
@@ -55,18 +59,25 @@ function MathAuth() {
         <h1 className="passport-text">Passport York Login</h1>
       </div>
 
-      <p>X + 5 = ?</p>
-      <input
-        type="number"
-        value={userAnswer}
-        onChange={handleAnswerChange}
-        placeholder="Your answer"
-      />
-      <button onClick={checkAnswer}>Submit Answer</button>
+      <div className="math-container">
+        <img src={geda} className="geda" alt="gedagide" />
+        <p className="center">
+          Gedagedigedagedago. Yeo the nugget wants you to solve this math equation! Use the provided board to find the number and solve for the equation!
+        </p>
+        <BlockMath math="(x + 5) \times 4 - 1 = ?" />
+        <input
+          type="number"
+          value={userAnswer}
+          onChange={handleAnswerChange}
+          placeholder="Your answer"
+          className="math-input"
+        />
+        <button onClick={checkAnswer} className="math-button">Submit Answer</button>
 
-      {isCorrect && (
-        <button>Access Granted</button> // Button appears if the answer is correct
-      )}
+        {isCorrect && (
+          <button className="math-button success-button">Access Granted</button>
+        )}
+      </div>
     </div>
   );
 }

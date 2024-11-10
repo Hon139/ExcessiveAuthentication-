@@ -1,0 +1,84 @@
+.MathAuth {
+    font-family: Arial, sans-serif;
+  }
+  
+  .Banner_Logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .header-banner {
+    background-color: #D91E18;
+    color: white;
+    padding: 10px 20px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .math-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto; /* Center the math container */
+  }
+  
+  .math-equation {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .math-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .math-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #004a99;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .math-button:hover {
+    background-color: #003366;
+  }
+  
+  .success-button {
+    background-color: #28a745;
+  }
+  
+  .success-button:hover {
+    background-color: #218838;
+  }
+  
+  .geda {
+    width: 50%;
+    height: auto; /* Maintains the aspect ratio */
+  }
+  .center {
+    text-align: center;
+  }
+
+  .math-equation {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .MathAuth {
+    font-family: Arial, sans-serif;
+  }

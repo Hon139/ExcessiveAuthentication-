@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom'; // Use Routes, Route, useNavigate without Router
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import logo from './components/YorkU_logo.png';
 import JohnYork from './components/john_york.png';
-import LoginButton from '../src/components/Login_Button';
-import LoginEntry from '../src/components/Login_Entry';
-import LoginFail from '../src/components/Login_Failed';
 import MathAuth from './pages/mathauth';
 import './App.css';
 
 const CORRECT_USR = "johnyork";
-const CORRECT_PWD = "12345"
+const CORRECT_PWD = "12345";
 
 function App() {
   return (
@@ -40,12 +37,9 @@ function Home() {
     setErrMessage("");
     if (userInputVal === CORRECT_USR && passInputVal === CORRECT_PWD) {
       navigate('/mathauth');
+    } else {
+      setErrMessage("Incorrect username or password bozo 😂");
     }
-    else {
-      console.log("error!!")
-      setErrMessage("bozo u typed the wrong password");
-    }
-    console.log(errMessage)  
   };
 
   return (
@@ -58,42 +52,64 @@ function Home() {
         <h1 className="passport-text">Passport York Login</h1>
       </div>
 
-      <header className="brainrot">
-        <img src = {JohnYork} className="john-york" alt="johnyork"/>
-      </header>
+      <div className="centered-box-container">
+        <div className="left-box">
+          <div className="passport-info">
+            <h1 className="passport-title">
+              <span style={{ color: 'black' }}>Passport</span>{' '}
+              <span style={{ color: '#d50000' }}>YORK</span>
+            </h1>
+            <p>
+              <strong>Passport York</strong> authenticates you as a member of
+              the York community and gives you access to a wide range of
+              computing resources and services.
+            </p>
+            <hr style={{ margin: '20px 0' }} />
+          </div>
 
-      <p>Login Below:</p>
+          <form onSubmit={handleLogin} className="login-form">
+            <label className="login-label">
+              <strong>Username:</strong>
+              <input
+                type="text"
+                value={userInputVal}
+                onChange={handleUserInputChange}
+                className="login-input"
+                placeholder="Enter your username"
+              />
+            </label>
+            <label className="login-label">
+              <strong>Password:</strong>
+              <input
+                type="password"
+                value={passInputVal}
+                onChange={handlePassInputChange}
+                className="login-input"
+                placeholder="Enter your password"
+              />
+            </label>
+            <button type="submit" className="login-button">Login</button>
+          </form>
 
-      <LoginEntry
-        type="text"
-        label="Enter username:"
-        placeholder="username"
-        onChange = {handleUserInputChange}
-        value = {userInputVal}
-      /> 
+          <div className="checkbox-container">
+            <input type="checkbox" id="change-password" />
+            <label htmlFor="change-password" className="checkbox-label">
+              Click this box before logging in to change your Passport York password.
+            </label>
+          </div>
 
-      <LoginEntry
-        type="password"
-        label="Enter password:"
-        placeholder="password"
-        onChange={handlePassInputChange}
-        value={passInputVal}
-      /> 
-    
+          {errMessage && <div className="error-message">{errMessage}</div>}
+        </div>
 
-      
-      {/* Submit button */}
-      <LoginButton eventListener={handleLogin} type="button"/>
-
-      {/* Error message if attempt not successful: */}     
-      <div>
-        {errMessage && <LoginFail errMessage={errMessage} />}
+        <div className="right-box">
+          <p>Welcome back, John York! Due to suspicious activity, we implemented new security protocols to keep your account secure.</p>
+          <header className="brainrot">
+            <img src={JohnYork} className="john-york" alt="John York" />
+          </header>
+        </div>
       </div>
-  
     </div>
-    
   );
 }
-
 
 export default App;
