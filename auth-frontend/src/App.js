@@ -8,6 +8,8 @@ import SSC from './pages/ssc';  // Import SSC component
 import EmailVerification from './pages/email';  // Import EmailVerification component
 import Captcha from './pages/captcha';  // Import Captcha component
 import Vibe from './pages/vibe';  // Import Vibe component
+import GoogleAuth from './pages/googleauth';  // Import GoogleAuth component
+import QR from './pages/qr';  // Import QR component
 import FaceID from './pages/faceID';
 import './App.css';
 
@@ -24,6 +26,8 @@ function App() {
       <Route path="/email" element={<EmailVerification />} /> {/* TouchID page */}
       <Route path="/captcha" element={<Captcha />} /> {/* Captcha page */}
       <Route path="/vibe" element={<Vibe />} /> {/* Vibe page */}
+      <Route path="/googleauth" element={<GoogleAuth />} /> {/* GoogleAuth page */}
+      <Route path="/qr" element={<QR />} /> {/* QR page */}
       <Route path="/faceID" element={<FaceID/>} /> {/* FaceID page */}
     </Routes>
   );
