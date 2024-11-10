@@ -10,6 +10,7 @@ import Captcha from './pages/captcha';  // Import Captcha component
 import Vibe from './pages/vibe';  // Import Vibe component
 import GoogleAuth from './pages/googleauth';  // Import GoogleAuth component
 import QR from './pages/qr';  // Import QR component
+import FaceID from './pages/faceID';
 import './App.css';
 
 const CORRECT_USR = "johnyork";
@@ -27,6 +28,7 @@ function App() {
       <Route path="/vibe" element={<Vibe />} /> {/* Vibe page */}
       <Route path="/googleauth" element={<GoogleAuth />} /> {/* GoogleAuth page */}
       <Route path="/qr" element={<QR />} /> {/* QR page */}
+      <Route path="/faceID" element={<FaceID/>} /> {/* FaceID page */}
     </Routes>
   );
 }
