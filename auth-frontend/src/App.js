@@ -1,4 +1,5 @@
 import logo from './components/YorkU_logo.png';
+import JohnYork from './components/john_york.png'
 import LoginButton from '../src/components/Login_Button'
 import LoginEntry from '../src/components/Login_Entry'
 import Checkbox from '../src/components/Checkbox'
@@ -31,6 +32,10 @@ function App() {
         <h1 className="passport-text">Passport Login</h1>
       </div>
 
+      <header className="brainrot">
+        <img src = {JohnYork} className="john-york" alt="johnyork"/>
+      </header>
+
       <p> Login Below: </p>
 
       {/* Username Input*/}
@@ -40,6 +45,7 @@ function App() {
         placeholder="username"
         onChange = {handleUserInputChange}
         value = {userInputVal}
+        className=""
       /> 
     
       {/* Password Input  */}
@@ -55,7 +61,11 @@ function App() {
       
       {/* Submit button */}
       <LoginButton/>
+   
+
+      
     </div>
+    
   );
 }
 
