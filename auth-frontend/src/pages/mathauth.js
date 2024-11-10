@@ -3,7 +3,7 @@ import logo from '../components/YorkU_logo.png';
 import geda from '../components/geda.png';
 import { BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
-import './MathAuth.css';
+import './pages.css';
 
 function MathAuth() {
   const [counter, setCounter] = useState(null);

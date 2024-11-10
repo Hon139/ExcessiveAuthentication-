@@ -4,6 +4,8 @@ import logo from './components/YorkU_logo.png';
 import JohnYork from './components/john_york.png';
 import MathAuth from './pages/mathauth';
 import TouchID from './pages/touchid';  // Import TouchID component
+import SSC from './pages/ssc';  // Import SSC component
+import EmailVerification from './pages/email';  // Import EmailVerification component
 import './App.css';
 
 const CORRECT_USR = "johnyork";
@@ -15,6 +17,8 @@ function App() {
       <Route path="/" element={<Home />} /> {/* Main login page */}
       <Route path="/mathauth" element={<MathAuth />} /> {/* MathAuth page */}
       <Route path="/touchid" element={<TouchID />} /> {/* TouchID page */}
+      <Route path="/ssc" element={<SSC />} /> {/* TouchID page */}
+      <Route path="/email" element={<EmailVerification />} /> {/* TouchID page */}
     </Routes>
   );
 }
