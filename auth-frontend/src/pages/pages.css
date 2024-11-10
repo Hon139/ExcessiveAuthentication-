@@ -161,3 +161,12 @@
     width: 60%;
     height: auto;
   }
+
+  .vibe-check {
+    height: auto;
+  }
+
+  .prompt-box {
+    margin-left: 50px;
+    margin-top: 20px;
+  }
