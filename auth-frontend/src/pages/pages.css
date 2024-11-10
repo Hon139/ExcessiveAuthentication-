@@ -286,3 +286,12 @@
     text-align: center;
   }
   
+
+  .vibe-check {
+    height: auto;
+  }
+
+  .prompt-box {
+    margin-left: 50px;
+    margin-top: 20px;
+  }
