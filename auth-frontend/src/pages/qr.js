@@ -1,25 +1,28 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { QRCodeCanvas } from 'qrcode.react';
+import { Secret, TOTP } from 'otpauth'; // Import classes directly
 import logo from '../components/YorkU_logo.png';
 import './pages.css';
-import speakeasy from 'speakeasy';
-import QRCode from 'qrcode';
 
 function QR() {
+  const [otpUrl, setOtpUrl] = useState('');
 
-  // const speakeasy = require('speakeasy');
-  // const QRCode = require('qrcode');
-  let imageDataURL;
-  
-  var secret = speakeasy.generateSecret({
-      length: 20,
-      name: "ExcessiveAuth"
-  });
-  // console.log(secret);
-  
-  QRCode.toDataURL(secret.otpauth_url, function(err, data) {
-      imageDataURL = data;
-  });
+  useEffect(() => {
+    // Generate TOTP secret
+    const secret = new Secret({ size: 20 });
+    const totp = new TOTP({
+      issuer: 'ExcessiveAuth',
+      label: 'User@example.com', // Replace with actual user email or identifier
+      algorithm: 'SHA1',
+      digits: 6,
+      period: 30,
+      secret: secret,
+    });
+
+    // Create the otpauth:// URL
+    const otpauthUrl = totp.toString();
+    setOtpUrl(otpauthUrl);
+  }, []);
 
   return (
     <div className="MathAuth">
@@ -30,12 +33,17 @@ function QR() {
       <div className="header-banner">
         <h1 className="passport-text">Passport York Login</h1>
       </div>
-      <img src={imageDataURL} alt="QR Code" />
-     
+
+      {otpUrl ? (
+        <>
+          <QRCodeCanvas value={otpUrl} size={128} />
+          <p className="secret-text">Scan this QR code to set up TOTP authentication.</p>
+        </>
+      ) : (
+        <p>Loading QR Code...</p>
+      )}
     </div>
   );
 }
-
-
 
 export default QR;
