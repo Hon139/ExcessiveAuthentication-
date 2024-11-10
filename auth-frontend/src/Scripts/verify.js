@@ -1,8 +1,11 @@
 const speakeasy = require('speakeasy');
 
+function verify (tokenInput, secretInput) {
+    return speakeasy.totp.verify({
+        secret: secretInput,
+        encoding: 'ascii',
+        token: tokenInput
+    });    
+}
 
-var verified = speakeasy.totp.verify({
-    secret:"",
-    encoding:'ascii'
-
-});
+export default verify;

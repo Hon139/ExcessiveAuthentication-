@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
 // Replace the URI and database/collection name with your actual values
-const uri = "mongodb+srv://<username>:<password>@cluster.mongodb.net/<database>?retryWrites=true&w=majority";
+const uri = "mongodb+srv://backend:HcK8qRxBMs8bygqC@secretsharingkeys.wluz8.mongodb.net/?retryWrites=true&w=majority&appName=SecretSharingKeys";
 const dbName = "<database>";
 const collectionName = "<collection>";
 
