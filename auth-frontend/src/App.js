@@ -6,8 +6,7 @@ import LoginButton from '../src/components/Login_Button'
 import LoginEntry from '../src/components/Login_Entry'
 import Checkbox from '../src/components/Checkbox'
 import mainContent from '../src/components/Main_Content'
-
-import React, { useState } from 'react'
+import MathAuth from './pages/mathauth';
 
 import './App.css';
 
