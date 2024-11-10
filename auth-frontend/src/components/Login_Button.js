@@ -1,8 +1,11 @@
 import { React } from 'react'
 
-function Login_Button() {
+const Login_Button = ({eventListener, type}) => {
     return (
-        <button>
+        <button
+            type={type}
+            onClick={eventListener}
+        >
             Submit
         </button>
     );

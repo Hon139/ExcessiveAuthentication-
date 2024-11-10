@@ -4,8 +4,8 @@ import logo from './components/YorkU_logo.png';
 import JohnYork from './components/john_york.png'
 import LoginButton from '../src/components/Login_Button'
 import LoginEntry from '../src/components/Login_Entry'
-import Checkbox from '../src/components/Checkbox'
-import mainContent from '../src/components/Main_Content'
+//import Checkbox from '../src/components/Checkbox'
+//import mainContent from '../src/components/Main_Content'
 import MathAuth from './pages/mathauth';
 
 import './App.css';
@@ -26,6 +26,7 @@ function Home() {
   const navigate = useNavigate();
 
   const handleUserInputChange = (e) => {
+   // console.log("test")
     setUserInputVal(e.target.value);
   };
 
@@ -34,7 +35,8 @@ function Home() {
   };
 
   const handleLogin = () => {
-    navigate('/mathauth');
+    console.log("submit triggered")
+    //navigate('/mathauth');
   };
 
   return (
@@ -72,7 +74,7 @@ function Home() {
 
       
       {/* Submit button */}
-      <LoginButton/>
+      <LoginButton eventListener={handleLogin} type="button"/>
     </div>
     
   );
