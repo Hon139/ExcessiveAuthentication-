@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom'; // Use Routes, Route, useNavigate without Router
 import logo from './components/YorkU_logo.png';
-import LoginButton from './components/Login_Button';
-import LoginEntry from './components/Login_Entry';
-import MathAuth from './pages/mathauth'; // Import mathauth from pages directory
+import JohnYork from './components/john_york.png'
+import LoginButton from '../src/components/Login_Button'
+import LoginEntry from '../src/components/Login_Entry'
+import Checkbox from '../src/components/Checkbox'
+import mainContent from '../src/components/Main_Content'
+
+import React, { useState } from 'react'
+
 import './App.css';
 
 function App() {
@@ -43,14 +48,18 @@ function Home() {
         <h1 className="passport-text">Passport York Login</h1>
       </div>
 
+      <header className="brainrot">
+        <img src = {JohnYork} className="john-york" alt="johnyork"/>
+      </header>
+
       <p>Login Below:</p>
 
       <LoginEntry
         type="text"
         label="Enter username:"
         placeholder="username"
-        onChange={handleUserInputChange}
-        value={userInputVal}
+        onChange = {handleUserInputChange}
+        value = {userInputVal}
       /> 
 
       <LoginEntry
@@ -60,13 +69,13 @@ function Home() {
         onChange={handlePassInputChange}
         value={passInputVal}
       /> 
+    
 
-      <LoginButton onClick={handleLogin} />
-
-      <button onClick={() => navigate('/mathauth')} className="navigate-button">
-        Go to MathAuth
-      </button>
+      
+      {/* Submit button */}
+      <LoginButton/>
     </div>
+    
   );
 }
 
