@@ -411,10 +411,17 @@
     text-align: center;
   }
   
-
-  
-
   .prompt-box {
     margin-left: 50px;
     margin-top: 20px;
+  }
+
+  .face-id {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .camera-toggle {
+    margin-top: 50px;
+    text-align: center;
   }
